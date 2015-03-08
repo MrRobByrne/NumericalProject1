@@ -1,0 +1,23 @@
+%Transistor
+
+%VB=0;?
+%VE=0;?
+
+alphaF=0.9900;
+alphaR=0.5;
+IS=0.01;
+k=1.3806488e-23; %Boltzmann constant
+q=1.60217657e-19;
+T=25+273; %25celcius to kelvin
+
+VT=k*T/q;
+IES=IS/alphaF;
+ICS=IS/alphaR;
+
+IF=IES*(exp((VB-VE)/VT)-1);
+IR=ICS*(exp((VB-VE)/VT)-1);
+
+ic=(alphaF*IF)-IR
+ie=IF-(alphaR*IR)
+%ib=(1-alphaF)*IF+(1-alphaR)*IR;
+ib=ie-ic
